@@ -15,20 +15,10 @@ public class FactorialComputer implements Runnable {
         int result = leftBorder == 0 ? 1 : leftBorder;
         if (leftBorder != rightBorder) result *= ++leftBorder;
 
-        if (leftBorder < rightBorder) (new Thread(new FactorialComputer(leftBorder + 1, rightBorder, this.index))).run();
+        System.out.println("Result within thread: " + result);
 
         SingletonFactorialResult.getInstance().multiplyBy(result);
 
-        /*int result = leftBorder == 0 ? 1 : leftBorder;
-        result *= ++leftBorder;
-
-        Thread thread;
-        if(leftBorder <= rightBorder) {
-            thread = new Thread(new FactorialComputer(leftBorder, rightBorder, this.index));
-            thread.run();
-        }
-
-        SingletonFactorialResult.getInstance().multiplyBy(result);*/
-
+        if (leftBorder < rightBorder) (new Thread(new FactorialComputer(leftBorder + 1, rightBorder, this.index))).run();
     }
 }

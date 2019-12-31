@@ -22,4 +22,7 @@ public class SingletonFactorialResult {
         System.out.println("Current value is " + factorialResult);
     }
 
+    public int getFactorialResult() {
+        return factorialResult;
+    }
 }
